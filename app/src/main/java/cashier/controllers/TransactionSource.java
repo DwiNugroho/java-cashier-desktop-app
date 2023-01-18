@@ -1,0 +1,153 @@
+package cashier.controllers;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import cashier.models.Transaction;
+import cashier.database.ConnectionHelper;
+import java.sql.Statement;
+
+/**
+ * A class which takes care of any CRUD operation for the `Transaction` model
+ */
+public class TransactionSource {
+	private final Transaction transaction;
+
+	/**
+	 * Initialise the `transaction` instance for this class
+	 * @param transaction - The Transaction instance
+	 */
+	public TransactionSource(Transaction transaction) {
+		this.transaction = transaction;
+	}
+
+	/**
+	 * Save the passed `Transaction` instance to the database
+     * @return 
+	 * @throws java.sql.SQLException - Error
+	 */
+	public int save() throws SQLException {
+		// we should use prepared statement to prevent
+		// SQL injection
+		String sql = "INSERT INTO transaksi (id_user, tanggal, total_harga, total_bayar, kembalian) "
+					+"VALUES (?, ?, ?, ?, ?)";
+		Connection connection = ConnectionHelper.getConnection();
+		PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+		// this code replaces the `?` from the `sql` string above
+		stmt.setInt(1, transaction.getUserID());
+		stmt.setDate(2, transaction.getDate());
+		stmt.setLong(3, transaction.getTotalPrice());
+		stmt.setLong(4, transaction.getTotalPaid());
+		stmt.setLong(5, transaction.getExchange());
+
+		int affectedRows = stmt.executeUpdate();
+                
+                if (affectedRows == 0) {
+                    throw new SQLException("Creating user failed, no rows affected.");
+                }
+                
+                ResultSet result = stmt.getGeneratedKeys();
+                int id = 0;
+                
+                while (result.next()) {
+                    id = result.getInt(1);
+                }
+                
+             return id;
+	}
+
+	/**
+	 * Update an Transaction
+	 * @throws java.sql.SQLException - Error
+	 */
+	public void update() throws SQLException {
+		String sql = "UPDATE order SET id_user=?, tanggal=?, total_harga=?, total_bayar=?, kembalian=? WHERE id_transaksi=?";
+		Connection connection = ConnectionHelper.getConnection();
+		PreparedStatement stmt = connection.prepareStatement(sql);
+
+		stmt.setInt(1, transaction.getUserID());
+		stmt.setDate(2, transaction.getDate());
+		stmt.setLong(3, transaction.getTotalPrice());
+		stmt.setLong(4, transaction.getTotalPaid());
+		stmt.setLong(5, transaction.getExchange());
+		stmt.setInt(6, transaction.getTransactionID());
+
+		stmt.executeUpdate();
+	}
+
+	/**
+	 * Delete a Transaction
+	 * @throws java.sql.SQLException - Error
+	 */
+	public void delete() throws SQLException {
+		String sql = "DELETE FROM transaksi WHERE id_transaksi=?";
+		Connection connection = ConnectionHelper.getConnection();
+		PreparedStatement stmt = connection.prepareStatement(sql);
+
+		stmt.setInt(1, transaction.getTransactionID());
+
+		stmt.executeUpdate();
+	}
+
+	/**
+	 * Get all Transactions from the database
+	 * @return transactionList
+	 * @throws java.sql.SQLException - Error
+	 */
+	public static List<Transaction> findAll() throws SQLException {
+		String sql = "SELECT * FROM `transaksi`";
+		Connection connection = ConnectionHelper.getConnection();
+		ResultSet rs = connection.createStatement().executeQuery(sql);
+
+		// we use List instead of Vector because it's the recommended way
+		List<Transaction> transactionList = new ArrayList<>();
+
+		// iterate through the available data and add the result to `orderList`
+		while(rs.next()) {
+			Transaction transaction = new Transaction();
+			transaction.setTransactionID(rs.getInt("id_transaksi"));
+			transaction.setUserID(rs.getInt("id_user"));
+			transaction.setDate(rs.getDate("tanggal"));
+			transaction.setTotalPaid(rs.getLong("total_bayar"));
+			transaction.setTotalPrice(rs.getLong("total_harga"));
+			transaction.setExchange(rs.getLong("kembalian"));
+			transactionList.add(transaction);
+		}
+
+		return transactionList;
+	}
+
+	/**
+	 * Returns Transaction if they exists
+	 * @return transaction
+	 * @throws java.sql.SQLException - Error
+	 */
+	public Transaction find() throws SQLException {
+		Transaction transaction = new Transaction();
+		String sql = "SELECT * FROM order WHERE id_order=?";
+		Connection connection = ConnectionHelper.getConnection();
+		PreparedStatement stmt = connection.prepareStatement(sql);
+
+		stmt.setInt(1, transaction.getTransactionID());
+
+		ResultSet rs = stmt.executeQuery();
+
+		if (rs.next()) {
+			transaction.setUserID(rs.getInt("id_user"));
+			transaction.setTransactionID(rs.getInt("id_transaksi"));
+			transaction.setDate(rs.getDate("tanggal"));
+			transaction.setTotalPrice(rs.getLong("total_harga"));
+			transaction.setTotalPaid(rs.getLong("total_bayar"));
+			transaction.setExchange(rs.getLong("kembalian"));
+			return transaction;
+		}
+
+		return null;
+	}
+}
+

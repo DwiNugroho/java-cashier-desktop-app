@@ -94,10 +94,10 @@ public class MenuManager extends javax.swing.JFrame {
                 }
 
                 // set details for text fields
-                idField.setText(foodTable.getValueAt(selectedRow, 0).toString());
-                foodNameField.setText(foodTable.getValueAt(selectedRow, 1).toString());
-                foodStockField.setText(foodTable.getValueAt(selectedRow, 2).toString());
-                priceField.setText(foodTable.getValueAt(selectedRow, 3).toString());
+//                idField.setText(foodTable.getValueAt(selectedRow, 0).toString());
+//                foodNameField.setText(foodTable.getValueAt(selectedRow, 1).toString());
+//                foodStockField.setText(foodTable.getValueAt(selectedRow, 2).toString());
+//                priceField.setText(foodTable.getValueAt(selectedRow, 3).toString());
 
                 // change the current user
                 currentFood.setFoodID(foodTable.getValueAt(selectedRow, 0).toString());
@@ -122,14 +122,6 @@ public class MenuManager extends javax.swing.JFrame {
         deleteButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         foodTable = new javax.swing.JTable();
-        priceField = new javax.swing.JTextField();
-        foodStockField = new javax.swing.JTextField();
-        foodNameField = new javax.swing.JTextField();
-        foodStockLabel = new javax.swing.JLabel();
-        priceLabel = new javax.swing.JLabel();
-        foodNameLabel = new javax.swing.JLabel();
-        idField = new javax.swing.JTextField();
-        idLabel = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
         logoutButton = new javax.swing.JButton();
         editButton = new javax.swing.JButton();
@@ -138,7 +130,7 @@ public class MenuManager extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         windowTitle.setFont(new java.awt.Font("Inter", 1, 18)); // NOI18N
-        windowTitle.setText("Manajemen Menu");
+        windowTitle.setText("Daftar Makanan");
 
         deleteButton.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         deleteButton.setText("Hapus Item");
@@ -178,26 +170,6 @@ public class MenuManager extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(foodTable);
-
-        priceField.setEditable(false);
-
-        foodStockField.setEditable(false);
-
-        foodNameField.setEditable(false);
-
-        foodStockLabel.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
-        foodStockLabel.setText("Stok Masakan");
-
-        priceLabel.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
-        priceLabel.setText("Harga Satuan");
-
-        foodNameLabel.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
-        foodNameLabel.setText("Nama Masakan");
-
-        idField.setEditable(false);
-
-        idLabel.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
-        idLabel.setText("ID Masakan");
 
         backButton.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
         backButton.setText("Kembali");
@@ -248,14 +220,6 @@ public class MenuManager extends javax.swing.JFrame {
                         .addComponent(windowTitle)
                         .addGap(81, 81, 81)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(idField, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(idLabel)
-                    .addComponent(foodNameLabel)
-                    .addComponent(foodNameField, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(foodStockField, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(foodStockLabel)
-                    .addComponent(priceLabel)
-                    .addComponent(priceField, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(deleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(editButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(addButton, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
@@ -273,22 +237,7 @@ public class MenuManager extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(idLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(idField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(foodNameLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(foodNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(foodStockLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(foodStockField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(priceLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(priceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(244, 244, 244)
                         .addComponent(editButton)
                         .addGap(18, 18, 18)
                         .addComponent(addButton)
@@ -375,17 +324,9 @@ public class MenuManager extends javax.swing.JFrame {
     private javax.swing.JButton backButton;
     private javax.swing.JButton deleteButton;
     private javax.swing.JButton editButton;
-    private javax.swing.JTextField foodNameField;
-    private javax.swing.JLabel foodNameLabel;
-    private javax.swing.JTextField foodStockField;
-    private javax.swing.JLabel foodStockLabel;
     private javax.swing.JTable foodTable;
-    private javax.swing.JTextField idField;
-    private javax.swing.JLabel idLabel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton logoutButton;
-    private javax.swing.JTextField priceField;
-    private javax.swing.JLabel priceLabel;
     private javax.swing.JLabel windowTitle;
     // End of variables declaration//GEN-END:variables
 }

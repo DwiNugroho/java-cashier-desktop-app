@@ -141,7 +141,7 @@ public class TransactionManager extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         windowTitle.setFont(new java.awt.Font("Inter", 1, 18)); // NOI18N
-        windowTitle.setText("Manajemen Transaksi");
+        windowTitle.setText("Transaksi");
 
         jScrollPane1.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
 

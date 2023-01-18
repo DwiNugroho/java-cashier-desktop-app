@@ -49,7 +49,7 @@ public class UserPopup extends javax.swing.JFrame {
     }
 
     private void populateData() {
-//        idField.setText(currentUser.getUserID().toString());
+        idField.setText(String.valueOf(currentUser.getUserID()));
         nameField.setText(currentUser.getName().toString());
         usernameField.setText(currentUser.getUsername().toString());
         passwordField.setText(currentUser.getPassword().toString());

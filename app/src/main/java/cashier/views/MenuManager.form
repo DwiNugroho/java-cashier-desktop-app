@@ -38,14 +38,6 @@
                   </Group>
               </Group>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="idField" alignment="1" max="32767" attributes="0"/>
-                  <Component id="idLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="foodNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="foodNameField" alignment="1" max="32767" attributes="0"/>
-                  <Component id="foodStockField" alignment="1" max="32767" attributes="0"/>
-                  <Component id="foodStockLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="priceLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="priceField" alignment="1" max="32767" attributes="0"/>
                   <Component id="deleteButton" alignment="0" max="32767" attributes="0"/>
                   <Component id="editButton" alignment="0" max="32767" attributes="0"/>
                   <Component id="addButton" pref="207" max="32767" attributes="0"/>
@@ -67,22 +59,7 @@
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="idLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="idField" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="foodNameLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="foodNameField" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="foodStockLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="foodStockField" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="priceLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="priceField" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="244" max="-2" attributes="0"/>
                       <Component id="editButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="addButton" min="-2" max="-2" attributes="0"/>
@@ -102,7 +79,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Inter" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Manajemen Menu"/>
+        <Property name="text" type="java.lang.String" value="Daftar Makanan"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="deleteButton">
@@ -142,58 +119,6 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JTextField" name="priceField">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="foodStockField">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="foodNameField">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="foodStockLabel">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Inter" size="16" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Stok Masakan"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="priceLabel">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Inter" size="16" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Harga Satuan"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="foodNameLabel">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Inter" size="16" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Nama Masakan"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="idField">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="idLabel">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Inter" size="16" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="ID Masakan"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JButton" name="backButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
